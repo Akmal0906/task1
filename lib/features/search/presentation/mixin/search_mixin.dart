@@ -1,16 +1,17 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:task1/features/search/presentation/pages/search_page.dart';
 
 mixin SearchMixin on State<SearchPage>{
-late bool isTapped;
-late List<String> menu;
-@override
+  late bool isTapped;
+  late List<String> menu;
+
+  late TextEditingController controller;
+  late List<String> category;
+
+  @override
   void initState() {
     super.initState();
-    menu=[
+    menu = [
       "Audio",
       "Drones + Electronics",
       "Photo + Video",
@@ -24,7 +25,12 @@ late List<String> menu;
       "TV + Home cinema",
 
     ];
-    isTapped=false;
-  }
+    isTapped = false;
+    controller = TextEditingController();
+    category=[
+      "Category","Brand", "Price"
+    ];
+
+    }
 
 }

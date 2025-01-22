@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage>
     super.initState();
     tabController = TabController(
       initialIndex: 0,
-      length: 6,
+      length: 3,
       vsync: this,
     );
     pageController = PageController();
@@ -39,7 +39,6 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
-    print('*********${LocalSource().favorites}*********');
 
     return Scaffold(
       body: SafeArea(
@@ -83,15 +82,7 @@ class _HomePageState extends State<HomePage>
                         Tab(
                           text: "Drones + Electronics",
                         ),
-                        Tab(
-                          text: "Photo + Video",
-                        ),
-                        Tab(
-                          text: "All2",
-                        ),
-                        Tab(
-                          text: "All3",
-                        ),
+
                       ]),
                 ),
               ),
@@ -150,8 +141,6 @@ class _HomePageState extends State<HomePage>
                             );
                           } else if (state.status == StatusEnum.success) {
                             return Column(
-                             
-                            
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(
@@ -231,14 +220,10 @@ class _HomePageState extends State<HomePage>
                               child: CircularProgressIndicator(),
                             );
                           } else if (state.status == StatusEnum.success) {
-                            return SingleChildScrollView(
-                              child: Column(
-                                children: [
-                                  GridWidget(
-                                    cart: state.cart,
-                                    products: null,
-                                  ),
-                                ],
+                            return Expanded(
+                              child: GridWidget(
+                                cart: state.cart,
+                                products: null,
                               ),
                             );
                           } else if (state.status == StatusEnum.error) {
@@ -254,21 +239,7 @@ class _HomePageState extends State<HomePage>
                         color: Colors.orange,
                         child: Text(' Yuza 3'),
                       ),
-                      Container(
-                        width: size.width,
-                        color: Colors.green,
-                        child: Text(' Yuza 4'),
-                      ),
-                      Container(
-                        width: size.width,
-                        color: Colors.grey,
-                        child: Text(' Yuza 5'),
-                      ),
-                      Container(
-                        width: size.width,
-                        color: Colors.green,
-                        child: Text(' Yuza 6'),
-                      ),
+
                     ]),
               ),
             ],

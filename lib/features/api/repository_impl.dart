@@ -41,4 +41,33 @@ class RepositoryIml extends Repository {
       return null;
     }
   }
+
+  @override
+  Future<Product?> search({required String quote}) async {
+    final Response response = await dio.get(
+      "${Urls.quote}$quote",
+    );
+    if(response.statusCode==200||response.statusCode==201){
+      print(response.data);
+      return  Product.fromJson(response.data);
+
+    }
+    else{
+      return null;
+    }
+  }
+
+  @override
+  Future<List<dynamic>?> getCategory() async{
+    final Response response = await dio.get(
+      Urls.category,
+    );
+    if(response.statusCode==200||response.statusCode==201){
+      print(response.data);
+      return response.data;
+
+    }
+    return null;
+
+  }
 }

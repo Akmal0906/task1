@@ -6,4 +6,7 @@ import '../home/model/new_model.dart';
 abstract class Repository{
   Future<Product?> getProduct();
   Future<Cart?> getCart();
+  Future<Product?> search({required String quote});
+  Future<List<dynamic>?> getCategory();
+
 }

@@ -11,7 +11,8 @@ sealed class Urls {
 
   static const String explore = "https://dummyjson.com/products";
   static const String cart = "https://dummyjson.com/carts";
-  static const String objectSlim = "/v1/object-slim";
+  static const String quote = "https://dummyjson.com/products/search?q=";
+  static const String category = "https://dummyjson.com/products/category-list";
 
 
 }
